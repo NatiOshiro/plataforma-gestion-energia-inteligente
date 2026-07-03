@@ -29,6 +29,7 @@ public class BateriaDeAlmacenamiento implements IObservable{
       throw new RuntimeException("Valores Invalidos");
     }
     nivelDeEnergiaActual += unValor;
+    this.notificarrObservador();
   }
 
   public void consumirEnergia(Integer unValor) {
@@ -37,10 +38,11 @@ public class BateriaDeAlmacenamiento implements IObservable{
     throw new RuntimeException("Limite de reserva");
   }
     nivelDeEnergiaActual -= unValor;
+    this.notificarrObservador();
   }
 
   @Override
-  public void agregarObservador(IObservable suscriptor) {
+  public void agregarObservador(IObservador suscriptor) {
     suscriptores.add(suscriptor);
   }
 

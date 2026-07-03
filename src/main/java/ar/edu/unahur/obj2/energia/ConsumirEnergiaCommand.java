@@ -14,4 +14,9 @@ public class ConsumirEnergiaCommand implements IComando {
     this.energia = energia;
   }
 
+  @Override
+  public void deshacer() {
+    bateria.cargarEnergia(energia);;
+  }
+
 }
