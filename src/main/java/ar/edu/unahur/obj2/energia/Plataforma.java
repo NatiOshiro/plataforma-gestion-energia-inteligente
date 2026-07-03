@@ -6,11 +6,8 @@ import java.util.List;
 public class Plataforma implements IObservador{
   private Integer actualizacion;
 
-  @Override
-  public void actualizar(Plataforma plataforma) {
-    actualizacion =  plataforma.getNivelDeEnergiaActual();
+  public void actualizar(BateriaDeAlmacenamiento bateria) {
+    actualizacion =  bateria.getNivelDeEnergiaActual();
   }
-
-  
 
 }

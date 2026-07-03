@@ -41,10 +41,7 @@ public class BateriaDeAlmacenamiento implements IObservable{
     this.notificarrObservador();
   }
 
-  @Override
-  public void agregarObservador(IObservador suscriptor) {
-    suscriptores.add(suscriptor);
-  }
+
 
   @Override
   public void quitarObservador(IObservable suscriptor) {
@@ -53,7 +50,12 @@ public class BateriaDeAlmacenamiento implements IObservable{
 
   @Override
   public void notificarrObservador() {
-    suscriptores.forEach(s -> s.actualizar(this));;
+    suscriptores.forEach(s -> s.actualizar(this));
+  }
+
+  @Override
+  public void agregarObservador(IObservable suscriptor) {
+    suscriptores.add(suscriptor);
   }
 
 }
