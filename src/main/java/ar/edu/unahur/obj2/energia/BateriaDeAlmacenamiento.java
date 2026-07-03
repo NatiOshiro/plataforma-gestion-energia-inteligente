@@ -1,5 +1,7 @@
 package ar.edu.unahur.obj2.energia;
 
+import javax.management.RuntimeErrorException;
+
 public class BateriaDeAlmacenamiento {
   private String identificador;
   private Integer nivelDeEnergiaActual;
@@ -18,10 +20,17 @@ public class BateriaDeAlmacenamiento {
   }
 
   public void cargarEnergia(Integer unValor) {
+    if(nivelDeEnergiaActual + unValor <=0){
+      throw new RuntimeException("Valores Invalidos");
+    }
     nivelDeEnergiaActual += unValor;
   }
 
   public void consumirEnergia(Integer unValor) {
+
+  if(nivelDeEnergiaActual - unValor <= -5000){
+    throw new RuntimeException("Limite de reserva");
+  }
     nivelDeEnergiaActual -= unValor;
   }
 
